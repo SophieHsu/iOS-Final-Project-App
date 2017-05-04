@@ -18,6 +18,9 @@
 		80341CBA1EB64331004268DB /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 80341CB91EB64331004268DB /* setting.png */; };
 		80341CBC1EB64551004268DB /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 80341CBB1EB64551004268DB /* calender.png */; };
 		80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341D101EB8EBE4004268DB /* TodoViewController.swift */; };
+		AF4DDF5F1EBB7C5A00094BFA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4DDF5E1EBB7C5A00094BFA /* CustomCell.swift */; };
+		AF4DDF611EBB862F00094BFA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */; };
+		AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC633621EBB90E200C77306 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		80341CB91EB64331004268DB /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		80341CBB1EB64551004268DB /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calender.png; sourceTree = "<group>"; };
 		80341D101EB8EBE4004268DB /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		AF4DDF5E1EBB7C5A00094BFA /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		AFC633621EBB90E200C77306 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CAA13CC16C1C389F4B8EC4C3 /* Pods-Project-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project-App/Pods-Project-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,10 +92,13 @@
 				80341C9F1EB633C4004268DB /* AppDelegate.swift */,
 				80341CA11EB633C4004268DB /* ViewController.swift */,
 				80341CA31EB633C4004268DB /* Main.storyboard */,
+				AFC633621EBB90E200C77306 /* SettingViewController.swift */,
+				AF4DDF5E1EBB7C5A00094BFA /* CustomCell.swift */,
 				80341CA61EB633C4004268DB /* Assets.xcassets */,
 				80341CA81EB633C4004268DB /* LaunchScreen.storyboard */,
 				80341CAB1EB633C4004268DB /* Info.plist */,
 				80341D101EB8EBE4004268DB /* TodoViewController.swift */,
+				AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */,
 			);
 			path = "Project-App";
 			sourceTree = "<group>";
@@ -230,9 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4DDF611EBB862F00094BFA /* CalendarViewController.swift in Sources */,
 				80341CA21EB633C4004268DB /* ViewController.swift in Sources */,
 				80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */,
+				AF4DDF5F1EBB7C5A00094BFA /* CustomCell.swift in Sources */,
 				80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */,
+				AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +408,7 @@
 				80341CB01EB633C4004268DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
