@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import EventKit
 
 class ViewController: UIViewController {
+    let eventStore = EKEventStore()
+    @IBOutlet weak var needPermissionView: UIView!
     
     @IBAction func Todo(_ sender: UIButton) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "TodoViewController"){
@@ -36,6 +39,59 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkCalendarAuthorizationStatus()
+    }
+    
+    func checkCalendarAuthorizationStatus() {
+        let status = EKEventStore.authorizationStatus(for: EKEntityType.event)
+        
+        switch (status) {
+        case EKAuthorizationStatus.notDetermined:
+            // This happens on first-run
+            requestAccessToCalendar()
+        case EKAuthorizationStatus.authorized:
+            // Things are in line with being able to show the calendars in the table view
+//            loadCalendars()
+//            refreshTableView()
+            break
+        case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
+            // We need to help them give us permission
+            needPermissionView.fadeIn()
+        }
+    }
+    
+    func requestAccessToCalendar() {
+        eventStore.requestAccess(to: EKEntityType.event, completion: {
+            (accessGranted: Bool, error: Error?) in
+            
+            if accessGranted == true {
+                DispatchQueue.main.async(execute: {
+//                    self.loadCalendars()
+//                    self.refreshTableView()
+                })
+            } else {
+                DispatchQueue.main.async(execute: {
+                    self.needPermissionView.fadeIn()
+                })
+            }
+        })
+    }
+    
+//    func loadCalendars() {
+//        self.calendars = eventStore.calendars(for: EKEntityType.event)
+//    }
+//    
+//    func refreshTableView() {
+//        calendarsTableView.isHidden = false
+//        calendarsTableView.reloadData()
+//    }
+    
+    @IBAction func goToSettingsButtonTapped(_ sender: UIButton) {
+        let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+        UIApplication.shared.open(openSettingsUrl!)
     }
     
 }

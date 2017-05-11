@@ -12,23 +12,23 @@ import EventKit
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let formatter = DateFormatter()
-    let eventStore = EKEventStore()
+    var calendars: [EKCalendar]?
+    var events: [EKEvent]?
     
-    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var needPermissionView: UIView!
-    @IBOutlet weak var calendarsTableView: UITableView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func BacktoHome(_ sender: UIButton) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
             show(vc,sender: self)
         }
     }
     
-    var calendars: [EKCalendar]?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        loadCalendars()
+        loadEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +45,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         case EKAuthorizationStatus.authorized:
             // Things are in line with being able to show the calendars in the table view
             loadCalendars()
+            loadEvents()
             refreshTableView()
         case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
             // We need to help them give us permission
@@ -53,12 +54,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func requestAccessToCalendar() {
-        eventStore.requestAccess(to: EKEntityType.event, completion: {
+        EKEventStore().requestAccess(to: .event, completion: {
             (accessGranted: Bool, error: Error?) in
             
             if accessGranted == true {
                 DispatchQueue.main.async(execute: {
                     self.loadCalendars()
+                    self.loadEvents()
                     self.refreshTableView()
                 })
             } else {
@@ -70,41 +72,61 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func loadCalendars() {
-        self.calendars = eventStore.calendars(for: EKEntityType.event)
+        self.calendars = EKEventStore().calendars(for: EKEntityType.event).sorted() { (cal1, cal2) -> Bool in
+            return cal1.title < cal2.title
+        }
     }
     
     func refreshTableView() {
-        calendarsTableView.isHidden = false
-        calendarsTableView.reloadData()
+        tableView.isHidden = false
+        tableView.reloadData()
+    }
+    
+    func loadEvents() {
+        // Create a date formatter instance to use for converting a string to a date
+        formatter.dateFormat = "yyyy MM dd"
+        
+        // Create start and end date NSDate instances to build a predicate for which events to select
+        let startDate = formatter.date(from: "2017 01 01")
+        let endDate = formatter.date(from: "2017 12 31")
+        
+        if let startDate = startDate, let endDate = endDate {
+            let eventStore = EKEventStore()
+            
+            // Use an event store instance to create and properly configure an NSPredicate
+            let eventsPredicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: calendars)
+            
+            // Use the configured NSPredicate to find and return events in the store that match
+            self.events = eventStore.events(matching: eventsPredicate).sorted(){
+                (e1: EKEvent, e2: EKEvent) -> Bool in
+                return e1.startDate.compare(e2.startDate) == ComparisonResult.orderedAscending
+            }
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let events = events {
+            return events.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell")!
+        cell.textLabel?.text = events?[(indexPath as NSIndexPath).row].title
+        return cell
     }
     
     @IBAction func goToSettingsButtonTapped(_ sender: UIButton) {
         let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
-        UIApplication.shared.open(openSettingsUrl!)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let calendars = self.calendars {
-            return calendars.count
-        }
-        
-        return 0
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")!
-        
-        if let calendars = self.calendars {
-            let calendarName = calendars[(indexPath as NSIndexPath).row].title
-            cell.textLabel?.text = calendarName
-        } else {
-            cell.textLabel?.text = "Unknown Calendar Name"
-        }
-        
-        return cell
+        UIApplication.shared.openURL(openSettingsUrl!)
     }
 }
+
 extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
