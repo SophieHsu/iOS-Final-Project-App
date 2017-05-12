@@ -36,6 +36,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+        calendarView.scrollToDate(Date())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -168,7 +169,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         let endDate = formatter.date(from: "2017 12 31")
         
         let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!, numberOfRows: 6, calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfGrid, firstDayOfWeek: .sunday)
-        
+            
         return parameters
     }
     
@@ -198,50 +199,63 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         } else {
             cell.dateLabel.textColor = UIColor.gray
         }
-        switch cellState.dateSection().month {
-        case 1:
+        
+        print(cellState.dateBelongsTo.rawValue)
+        
+        return cell
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        formatter.dateFormat = "MM"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        let firstDateOfMonth = visibleDates.monthDates[0].date
+        let Month = formatter.string(from: firstDateOfMonth)
+        print(Month)
+        switch Month {
+        case "01":
             monthLabel.text = "January"
             break
-        case 2:
+        case "02":
             monthLabel.text = "February"
             break
-        case 3:
+        case "03":
             monthLabel.text = "March"
             break
-        case 4:
+        case "04":
             monthLabel.text = "April"
             break
-        case 5:
+        case "05":
             monthLabel.text = "May"
             break
-        case 6:
+        case "06":
             monthLabel.text = "June"
             break
-        case 7:
+        case "07":
             monthLabel.text = "July"
             break
-        case 8:
+        case "08":
             monthLabel.text = "Augest"
             break
-        case 9:
+        case "09":
             monthLabel.text = "September"
             break
-        case 10:
+        case "10":
             monthLabel.text = "October"
             break
-        case 11:
+        case "11":
             monthLabel.text = "November"
             break
-        case 12:
+        case "12":
             monthLabel.text = "December"
             break
         default:
             break
         }
-        
-        return cell
+
     }
-    
+
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard let validCell = cell as? CustomCell else { return }
         validCell.selectedView.isHidden = false
