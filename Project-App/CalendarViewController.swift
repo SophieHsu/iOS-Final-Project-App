@@ -15,6 +15,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     var calendars: [EKCalendar]?
     var events: [EKEvent]?
     
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var needPermissionView: UIView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -27,8 +28,14 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setupCalendarView()
         loadCalendars()
-        loadEvents()
+        loadEvents(date: Date())
+    }
+    
+    func setupCalendarView() {
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +52,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         case EKAuthorizationStatus.authorized:
             // Things are in line with being able to show the calendars in the table view
             loadCalendars()
-            loadEvents()
+            loadEvents(date: Date())
             refreshTableView()
         case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
             // We need to help them give us permission
@@ -60,7 +67,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
             if accessGranted == true {
                 DispatchQueue.main.async(execute: {
                     self.loadCalendars()
-                    self.loadEvents()
+                    self.loadEvents(date: Date())
                     self.refreshTableView()
                 })
             } else {
@@ -82,14 +89,18 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.reloadData()
     }
     
-    func loadEvents() {
+    func loadEvents(date: Date) {
         // Create a date formatter instance to use for converting a string to a date
         formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
         
         // Create start and end date NSDate instances to build a predicate for which events to select
-        let startDate = formatter.date(from: "2017 01 01")
-        let endDate = formatter.date(from: "2017 12 31")
-        
+        let today = formatter.string(from: date)
+        let tomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        let tomorrow = formatter.string(from: tomorrowDate!)
+        let startDate = formatter.date(from: today)
+        let endDate = formatter.date(from: tomorrow)
         if let startDate = startDate, let endDate = endDate {
             let eventStore = EKEventStore()
             
@@ -118,17 +129,23 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
         formatter.dateFormat = "hh:mm a"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! calendarTableViewCell
+        
         //title of calendar event
         cell.eventTitle?.text = events?[(indexPath as NSIndexPath).row].title
+        
         //start date of calendar event
         let cellStartDate = events?[(indexPath as NSIndexPath).row].startDate
         var newDateFormate = formatter.string(from: cellStartDate!)
         cell.startTime?.text = newDateFormate
+        
         //end date of calendar event
         let cellEndDate = events?[(indexPath as NSIndexPath).row].endDate
         newDateFormate = formatter.string(from: cellEndDate!)
         cell.endTime?.text = newDateFormate
+        
         //location of calendar event
         cell.eventLocation?.text = events?[(indexPath as NSIndexPath).row].structuredLocation?.title
         
@@ -141,7 +158,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 }
 
-extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+extension CalendarViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = Calendar.current.timeZone
@@ -155,6 +172,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         return parameters
     }
     
+}
+
+extension CalendarViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         let currentDateString = formatter.string(from: Date())
@@ -162,6 +182,12 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         
         // Setup Cell text
         cell.dateLabel.text = cellState.text
+        
+        if cellState.isSelected {
+            cell.selectedView.isHidden = false
+        }else{
+            cell.selectedView.isHidden = true
+        }
         
         // Setup text color
         if cellState.dateBelongsTo == .thisMonth {
@@ -214,5 +240,18 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         }
         
         return cell
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        guard let validCell = cell as? CustomCell else { return }
+        validCell.selectedView.isHidden = false
+        let selectedDate = cellState.date
+        loadEvents(date: selectedDate)
+        refreshTableView()
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        guard let validCell = cell as? CustomCell else { return }
+        validCell.selectedView.isHidden = true
     }
 }
