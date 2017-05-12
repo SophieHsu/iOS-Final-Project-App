@@ -116,8 +116,22 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell")!
-        cell.textLabel?.text = events?[(indexPath as NSIndexPath).row].title
+        //formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
+        formatter.dateFormat = "hh:mm a"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! calendarTableViewCell
+        //title of calendar event
+        cell.eventTitle?.text = events?[(indexPath as NSIndexPath).row].title
+        //start date of calendar event
+        let cellStartDate = events?[(indexPath as NSIndexPath).row].startDate
+        var newDateFormate = formatter.string(from: cellStartDate!)
+        cell.startTime?.text = newDateFormate
+        //end date of calendar event
+        let cellEndDate = events?[(indexPath as NSIndexPath).row].endDate
+        newDateFormate = formatter.string(from: cellEndDate!)
+        cell.endTime?.text = newDateFormate
+        //location of calendar event
+        cell.eventLocation?.text = events?[(indexPath as NSIndexPath).row].structuredLocation?.title
+        
         return cell
     }
     

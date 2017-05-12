@@ -184,24 +184,24 @@
                                     <constraint firstAttribute="height" constant="261" id="uaA-6V-diq"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="51" id="xdA-Yt-IGx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="51" id="xdA-Yt-IGx" customClass="calendarTableViewCell" customModule="Project_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xdA-Yt-IGx" id="g3Z-cU-exW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="qwy-Ah-P4g">
-                                                    <rect key="frame" x="24.5" y="5" width="55.5" height="31.5"/>
+                                                    <rect key="frame" x="25.5" y="5" width="54" height="30.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:30 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-rb-ny4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="55.5" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0c-x5-WKC">
-                                                            <rect key="frame" x="0.0" y="17" width="55.5" height="14.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0c-x5-WKC">
+                                                            <rect key="frame" x="0.0" y="16" width="54" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -233,6 +233,12 @@
                                                 <constraint firstItem="qwy-Ah-P4g" firstAttribute="top" secondItem="g3Z-cU-exW" secondAttribute="topMargin" constant="-3" id="t1B-yk-6No"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="endTime" destination="o0c-x5-WKC" id="Rg3-IN-JPp"/>
+                                            <outlet property="eventLocation" destination="CS5-JE-P9j" id="bCn-wX-bYP"/>
+                                            <outlet property="eventTitle" destination="bLk-Kc-Vo2" id="Yzt-iC-zLe"/>
+                                            <outlet property="startTime" destination="Ny7-rb-ny4" id="o8E-Ad-P4n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

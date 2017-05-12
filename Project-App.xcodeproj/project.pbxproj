@@ -22,6 +22,7 @@
 		AF4DDF611EBB862F00094BFA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */; };
 		AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC633621EBB90E200C77306 /* SettingViewController.swift */; };
 		AFF481FE1EC4A63D0081A008 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF481FD1EC4A63D0081A008 /* UIViewExtensions.swift */; };
+		AFF482021EC571FE0081A008 /* calendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF482011EC571FE0081A008 /* calendarTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		AFC633621EBB90E200C77306 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AFF481FD1EC4A63D0081A008 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		AFF482011EC571FE0081A008 /* calendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarTableViewCell.swift; sourceTree = "<group>"; };
 		CAA13CC16C1C389F4B8EC4C3 /* Pods-Project-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project-App/Pods-Project-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				80341C9F1EB633C4004268DB /* AppDelegate.swift */,
 				80341CA11EB633C4004268DB /* ViewController.swift */,
 				80341CA31EB633C4004268DB /* Main.storyboard */,
+				AFF482011EC571FE0081A008 /* calendarTableViewCell.swift */,
 				AFF481FD1EC4A63D0081A008 /* UIViewExtensions.swift */,
 				AFC633621EBB90E200C77306 /* SettingViewController.swift */,
 				AF4DDF5E1EBB7C5A00094BFA /* CustomCell.swift */,
@@ -245,6 +248,7 @@
 				AF4DDF611EBB862F00094BFA /* CalendarViewController.swift in Sources */,
 				AFF481FE1EC4A63D0081A008 /* UIViewExtensions.swift in Sources */,
 				80341CA21EB633C4004268DB /* ViewController.swift in Sources */,
+				AFF482021EC571FE0081A008 /* calendarTableViewCell.swift in Sources */,
 				80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */,
 				AF4DDF5F1EBB7C5A00094BFA /* CustomCell.swift in Sources */,
 				80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */,
