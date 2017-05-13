@@ -25,6 +25,10 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    let outsideMonthColor = UIColor.gray
+    let monthColor = UIColor.black
+    let selectedMonthColor = UIColor.black
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,6 +41,52 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         calendarView.scrollToDate(Date())
+    }
+    
+    func handleCelltextColor(view: JTAppleCell?, cellState: CellState) {
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        guard let validCell = view as? CustomCell else { return }
+        let currentDateString = formatter.string(from: Date())
+        let cellStateDateString = formatter.string(from: cellState.date)
+
+        if cellState.isSelected {
+            validCell.dateLabel.textColor = selectedMonthColor
+            if currentDateString == cellStateDateString {
+                validCell.dateLabel.textColor = UIColor.white
+            }
+        } else {
+            if cellState.dateBelongsTo == .thisMonth {
+                validCell.dateLabel.textColor = monthColor
+                if currentDateString == cellStateDateString {
+                    validCell.dateLabel.textColor = UIColor.red
+                }
+            } else {
+                validCell.dateLabel.textColor = outsideMonthColor
+            }
+        }
+    }
+    
+    func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        let currentDateString = formatter.string(from: Date())
+        let cellStateDateString = formatter.string(from: cellState.date)
+        guard let validCell = view as? CustomCell else { return }
+        
+        if validCell.isSelected {
+            validCell.selectedView.isHidden = false
+            if currentDateString == cellStateDateString {
+                validCell.todaySelectedView.isHidden = false
+            }
+        }else{
+            validCell.selectedView.isHidden = true
+            if currentDateString == cellStateDateString {
+                validCell.todaySelectedView.isHidden = true
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -178,30 +228,13 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
 extension CalendarViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        let currentDateString = formatter.string(from: Date())
-        let cellStateDateString = formatter.string(from: cellState.date)
         
         // Setup Cell text
         cell.dateLabel.text = cellState.text
         
-        if cellState.isSelected {
-            cell.selectedView.isHidden = false
-        }else{
-            cell.selectedView.isHidden = true
-        }
-        
-        // Setup text color
-        if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = UIColor.black
-            if currentDateString == cellStateDateString {
-                cell.dateLabel.textColor = UIColor.blue
-            }
-        } else {
-            cell.dateLabel.textColor = UIColor.gray
-        }
-        
-        print(cellState.dateBelongsTo.rawValue)
-        
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCelltextColor(view: cell, cellState: cellState)
+                
         return cell
     }
     
@@ -257,15 +290,15 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let validCell = cell as? CustomCell else { return }
-        validCell.selectedView.isHidden = false
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCelltextColor(view: cell, cellState: cellState)
         let selectedDate = cellState.date
         loadEvents(date: selectedDate)
         refreshTableView()
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let validCell = cell as? CustomCell else { return }
-        validCell.selectedView.isHidden = true
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCelltextColor(view: cell, cellState: cellState)
     }
 }

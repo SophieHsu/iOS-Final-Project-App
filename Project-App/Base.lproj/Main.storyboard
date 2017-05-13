@@ -139,15 +139,28 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99t-pg-alA">
-                                                            <rect key="frame" x="27" y="24" width="30" height="30"/>
+                                                            <rect key="frame" x="22" y="19" width="40" height="40"/>
                                                             <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="61I-tB-ygR"/>
-                                                                <constraint firstAttribute="width" constant="30" id="UiX-zC-Jg1"/>
+                                                                <constraint firstAttribute="height" constant="40" id="61I-tB-ygR"/>
+                                                                <constraint firstAttribute="width" constant="40" id="UiX-zC-Jg1"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="15"/>
+                                                                    <integer key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFm-jQ-U1P">
+                                                            <rect key="frame" x="22" y="18" width="40" height="40"/>
+                                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="6Nc-hc-dLI"/>
+                                                                <constraint firstAttribute="height" constant="40" id="Kh9-je-56C"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="20"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
@@ -161,13 +174,16 @@
                                                 </view>
                                                 <constraints>
                                                     <constraint firstItem="99t-pg-alA" firstAttribute="centerX" secondItem="6W3-pB-VFH" secondAttribute="centerX" id="41a-NQ-y7n"/>
+                                                    <constraint firstItem="PFm-jQ-U1P" firstAttribute="centerY" secondItem="6W3-pB-VFH" secondAttribute="centerY" id="4zq-JJ-BfO"/>
                                                     <constraint firstItem="Tck-ra-YII" firstAttribute="centerY" secondItem="6W3-pB-VFH" secondAttribute="centerY" id="UkO-qG-27w"/>
+                                                    <constraint firstItem="PFm-jQ-U1P" firstAttribute="centerX" secondItem="6W3-pB-VFH" secondAttribute="centerX" id="lfC-XV-Xfp"/>
                                                     <constraint firstItem="99t-pg-alA" firstAttribute="centerY" secondItem="6W3-pB-VFH" secondAttribute="centerY" id="qUa-FN-Sbg"/>
                                                     <constraint firstItem="Tck-ra-YII" firstAttribute="centerX" secondItem="6W3-pB-VFH" secondAttribute="centerX" id="qgP-Gw-Qbp"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="dateLabel" destination="Tck-ra-YII" id="Vog-PU-gO3"/>
                                                     <outlet property="selectedView" destination="99t-pg-alA" id="fzc-Pd-0y9"/>
+                                                    <outlet property="todaySelectedView" destination="PFm-jQ-U1P" id="Dni-m4-Vj5"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
