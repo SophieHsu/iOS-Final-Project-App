@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     let eventStore = EKEventStore()
     let speechSynthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance(string: "")
+    let formatter = DateFormatter()
+    var calendars: [EKCalendar]?
+    var events: [EKEvent]?
     
     @IBOutlet weak var needPermissionView: UIView!
     
@@ -23,7 +26,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func Calendar(_ sender: UIButton) {
+    @IBAction func CalendarBtn(_ sender: UIButton) {
         if let vc3 = storyboard?.instantiateViewController(withIdentifier: "CalendarVC"){
             show(vc3,sender: self)
         }
@@ -37,23 +40,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var GreetingText: UILabel!
     
-    @IBAction func speechBtn(sender: UIButton)
-    {
-        utterance = AVSpeechUtterance(string: GreetingText.text!)
-        utterance.rate = 0.3
-        speechSynthesizer.speak(utterance)
-    }
-
-    @IBAction func textToSpeech(sender: UIButton)
-    {
-        utterance = AVSpeechUtterance(string: GreetingText.text!)
-        utterance.rate = 0.3
-        speechSynthesizer.speak(utterance)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        loadCalendars()
+        loadEvents(date: Date())
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,6 +99,67 @@ class ViewController: UIViewController {
 //        calendarsTableView.isHidden = false
 //        calendarsTableView.reloadData()
 //    }
+    
+    func loadCalendars() {
+        self.calendars = EKEventStore().calendars(for: EKEntityType.event).sorted() { (cal1, cal2) -> Bool in
+            return cal1.title < cal2.title
+        }
+    }
+    
+    func loadEvents(date: Date) {
+        // Create a date formatter instance to use for converting a string to a date
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        // Create start and end date NSDate instances to build a predicate for which events to select
+        let today = formatter.string(from: date)
+        let tomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        let tomorrow = formatter.string(from: tomorrowDate!)
+        let startDate = formatter.date(from: today)
+        let endDate = formatter.date(from: tomorrow)
+        if let startDate = startDate, let endDate = endDate {
+            let eventStore = EKEventStore()
+            
+            // Use an event store instance to create and properly configure an NSPredicate
+            let eventsPredicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: calendars)
+            
+            // Use the configured NSPredicate to find and return events in the store that match
+            self.events = eventStore.events(matching: eventsPredicate).sorted(){
+                (e1: EKEvent, e2: EKEvent) -> Bool in
+                return e1.startDate.compare(e2.startDate) == ComparisonResult.orderedAscending
+            }
+        }
+    }
+    
+    @IBAction func speechBtn(sender: UIButton)
+    {
+        textToSpeech()
+    }
+    
+    @IBAction func textToSpeech(sender: UIButton)
+    {
+        textToSpeech()
+    }
+    
+    func textToSpeech() {
+        formatter.dateFormat = "hh:mm"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        var textStr = GreetingText.text!
+        let zero = 0
+        textStr = textStr + "You have \((events?.count)!) events today, starting with "
+        for var i in zero..<(events?.count)! {
+            let eventTitle = (events?[i].title)!
+            let eventStartDate = (events?[i].startDate)!
+            let eventStartTime = formatter.string(from: eventStartDate)
+            textStr = textStr + eventTitle + " at " + eventStartTime + ", "
+        }
+        utterance = AVSpeechUtterance(string: textStr)
+        utterance.rate = 0.3
+        speechSynthesizer.speak(utterance)
+    }
+
     
     @IBAction func goToSettingsButtonTapped(_ sender: UIButton) {
         let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)

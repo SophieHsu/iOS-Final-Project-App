@@ -509,7 +509,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="calender.png"/>
                                 <connections>
-                                    <action selector="Calendar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IP8-HH-dgD"/>
+                                    <action selector="CalendarBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bIq-2p-exS"/>
                                     <segue destination="XMn-Gn-LXF" kind="show" id="RtL-ML-Pjy"/>
                                 </connections>
                             </button>
