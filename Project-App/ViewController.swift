@@ -8,9 +8,13 @@
 
 import UIKit
 import EventKit
+import AVFoundation
 
 class ViewController: UIViewController {
     let eventStore = EKEventStore()
+    let speechSynthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance(string: "")
+    
     @IBOutlet weak var needPermissionView: UIView!
     
     @IBAction func Todo(_ sender: UIButton) {
@@ -29,6 +33,22 @@ class ViewController: UIViewController {
         if let vc5 = storyboard?.instantiateViewController(withIdentifier: "SettingVC"){
             show(vc5,sender: self)
         }
+    }
+    
+    @IBOutlet weak var GreetingText: UILabel!
+    
+    @IBAction func speechBtn(sender: UIButton)
+    {
+        utterance = AVSpeechUtterance(string: GreetingText.text!)
+        utterance.rate = 0.3
+        speechSynthesizer.speak(utterance)
+    }
+
+    @IBAction func textToSpeech(sender: UIButton)
+    {
+        utterance = AVSpeechUtterance(string: GreetingText.text!)
+        utterance.rate = 0.3
+        speechSynthesizer.speak(utterance)
     }
 
     override func viewDidLoad() {

@@ -26,6 +26,9 @@
 		AFF482041EC8AEB70081A008 /* plus icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF482031EC8AEB70081A008 /* plus icon.png */; };
 		AFF482061EC8B2BD0081A008 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */; };
 		AFF482081EC8B39E0081A008 /* EventAddedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */; };
+		AFF4820A1EC8CBFE0081A008 /* speak.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF482091EC8CBFE0081A008 /* speak.png */; };
+		AFF4820C1EC8CD9C0081A008 /* assitance.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4820B1EC8CD9C0081A008 /* assitance.png */; };
+		AFF4820E1EC8CE4E0081A008 /* assistant2.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4820D1EC8CE4E0081A008 /* assistant2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		AFF482031EC8AEB70081A008 /* plus icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus icon.png"; sourceTree = "<group>"; };
 		AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddedDelegate.swift; sourceTree = "<group>"; };
+		AFF482091EC8CBFE0081A008 /* speak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speak.png; sourceTree = "<group>"; };
+		AFF4820B1EC8CD9C0081A008 /* assitance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assitance.png; sourceTree = "<group>"; };
+		AFF4820D1EC8CE4E0081A008 /* assistant2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assistant2.png; sourceTree = "<group>"; };
 		CAA13CC16C1C389F4B8EC4C3 /* Pods-Project-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project-App/Pods-Project-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +101,9 @@
 		80341C9E1EB633C4004268DB /* Project-App */ = {
 			isa = PBXGroup;
 			children = (
+				AFF482091EC8CBFE0081A008 /* speak.png */,
+				AFF4820D1EC8CE4E0081A008 /* assistant2.png */,
+				AFF4820B1EC8CD9C0081A008 /* assitance.png */,
 				AFF482031EC8AEB70081A008 /* plus icon.png */,
 				AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */,
 				AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */,
@@ -189,8 +198,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF4820E1EC8CE4E0081A008 /* assistant2.png in Resources */,
 				80341CAA1EB633C4004268DB /* LaunchScreen.storyboard in Resources */,
+				AFF4820A1EC8CBFE0081A008 /* speak.png in Resources */,
 				80341CB61EB63F40004268DB /* background.jpg in Resources */,
+				AFF4820C1EC8CD9C0081A008 /* assitance.png in Resources */,
 				80341CBA1EB64331004268DB /* setting.png in Resources */,
 				80341CA71EB633C4004268DB /* Assets.xcassets in Resources */,
 				80341CBC1EB64551004268DB /* calender.png in Resources */,

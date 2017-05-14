@@ -255,7 +255,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="endTime" destination="o0c-x5-WKC" id="Rg3-IN-JPp"/>
-                                            <outlet property="eventLocation" destination="CS5-JE-P9j" id="bCn-wX-bYP"/>
+                                            <outlet property="eventLocation" destination="CS5-JE-P9j" id="JP8-Dy-yN8"/>
                                             <outlet property="eventTitle" destination="bLk-Kc-Vo2" id="Yzt-iC-zLe"/>
                                             <outlet property="startTime" destination="Ny7-rb-ny4" id="o8E-Ad-P4n"/>
                                         </connections>
@@ -513,6 +513,13 @@
                                     <segue destination="XMn-Gn-LXF" kind="show" id="RtL-ML-Pjy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igL-bS-4xc" userLabel="speechBtn">
+                                <rect key="frame" x="65" y="278" width="259" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="speechBtnWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oPn-Mn-FGc"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ii-G7-7nu">
                                 <rect key="frame" x="15" y="619" width="30" height="30"/>
                                 <constraints>
@@ -525,17 +532,32 @@
                                     <segue destination="cCe-3r-eUM" kind="show" id="eXx-e3-d7v"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyo-hd-Vg7">
+                                <rect key="frame" x="162.5" y="262" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="QMk-Rv-aCn"/>
+                                    <constraint firstAttribute="height" constant="50" id="XvL-8j-dMA"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="assistant2.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="textToSpeechWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zx9-fu-EQ1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tyM-5a-rKb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5W9-1A-5OC"/>
                             <constraint firstItem="gti-VU-3pD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5cv-72-pAi"/>
+                            <constraint firstItem="lyo-hd-Vg7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5xA-9f-CBO"/>
                             <constraint firstItem="GZk-cE-Aez" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="AjS-nH-pre"/>
                             <constraint firstAttribute="trailing" secondItem="0N0-b0-bdh" secondAttribute="trailing" constant="15" id="EDY-dp-FmW"/>
                             <constraint firstItem="GZk-cE-Aez" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M5w-1b-MRQ"/>
                             <constraint firstItem="f9h-cx-qia" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="OQt-y5-Y55"/>
                             <constraint firstItem="9Ii-G7-7nu" firstAttribute="centerY" secondItem="bxC-Nr-YQ3" secondAttribute="centerY" id="P5J-6V-Xc1"/>
                             <constraint firstAttribute="trailing" secondItem="bxC-Nr-YQ3" secondAttribute="trailing" constant="15" id="Qnq-fO-D2U"/>
+                            <constraint firstItem="GZk-cE-Aez" firstAttribute="top" secondItem="lyo-hd-Vg7" secondAttribute="bottom" constant="8" id="Xhh-OB-jsv"/>
                             <constraint firstItem="tyM-5a-rKb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Y9e-Qf-pSE"/>
                             <constraint firstAttribute="trailing" secondItem="gti-VU-3pD" secondAttribute="trailing" id="ZoN-K6-m0F"/>
                             <constraint firstItem="9Ii-G7-7nu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="bb2-3f-2yQ"/>
@@ -549,6 +571,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="GreetingText" destination="GZk-cE-Aez" id="ZJO-RD-WLF"/>
                         <outlet property="needPermissionView" destination="gti-VU-3pD" id="ZZ0-tH-kbm"/>
                     </connections>
                 </viewController>
@@ -617,6 +640,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="assistant2.png" width="1112" height="1223"/>
         <image name="background.jpg" width="1024" height="680"/>
         <image name="calender.png" width="104" height="104"/>
         <image name="plus icon.png" width="128" height="128"/>

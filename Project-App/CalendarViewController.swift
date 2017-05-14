@@ -198,7 +198,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.endTime?.text = newDateFormate
         
         //location of calendar event
-        cell.eventLocation?.text = events?[(indexPath as NSIndexPath).row].structuredLocation?.title
+        cell.eventLocation?.text = events?[(indexPath as NSIndexPath).row].location
         
         return cell
     }
@@ -259,7 +259,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         let firstDateOfMonth = visibleDates.monthDates[0].date
         let Month = formatter.string(from: firstDateOfMonth)
-        print(Month)
+        
         switch Month {
         case "01":
             monthLabel.text = "January"
