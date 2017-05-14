@@ -9,7 +9,7 @@ import UIKit
 import JTAppleCalendar
 import EventKit
 
-class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EventAddedDelegate {
     
     let formatter = DateFormatter()
     var calendars: [EKCalendar]?
@@ -206,6 +206,20 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func goToSettingsButtonTapped(_ sender: UIButton) {
         let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
         UIApplication.shared.openURL(openSettingsUrl!)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "calendarvc_to_addeventvc" {
+            let vc = segue.destination as! AddEventViewController
+            vc.calendar = calendars?[0]
+            vc.delegate = self
+        }
+    }
+    
+    // MARK: Event Added Delegate
+    func eventDidAdd() {
+        self.loadEvents(date: Date())
+        self.tableView.reloadData()
     }
 }
 
