@@ -445,33 +445,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gti-VU-3pD" userLabel="Permission View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-Za-wkT">
-                                        <rect key="frame" x="137" y="318" width="101" height="30"/>
-                                        <state key="normal" title="Go To Settings"/>
-                                        <connections>
-                                            <action selector="goToSettingsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Qd-R6-epn"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to function efficiently, we need your permission for retrieving information from your local calendar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X5-XS-lgf">
-                                        <rect key="frame" x="25" y="207" width="325" height="61"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="centerY" secondItem="gti-VU-3pD" secondAttribute="centerY" id="NRV-J6-8tY"/>
-                                    <constraint firstAttribute="trailing" secondItem="7X5-XS-lgf" secondAttribute="trailing" constant="25" id="U3t-sP-8nX"/>
-                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="djC-jR-oJS"/>
-                                    <constraint firstItem="7X5-XS-lgf" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="rSa-z7-h5W"/>
-                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="top" secondItem="7X5-XS-lgf" secondAttribute="bottom" constant="50" id="vFq-2x-rXL"/>
-                                    <constraint firstItem="7X5-XS-lgf" firstAttribute="leading" secondItem="gti-VU-3pD" secondAttribute="leading" constant="25" id="xNm-pj-KPl"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tyM-5a-rKb">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
@@ -545,6 +518,33 @@
                                     <action selector="textToSpeechWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zx9-fu-EQ1"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gti-VU-3pD" userLabel="Permission View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-Za-wkT">
+                                        <rect key="frame" x="137" y="318" width="101" height="30"/>
+                                        <state key="normal" title="Go To Settings"/>
+                                        <connections>
+                                            <action selector="goToSettingsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Qd-R6-epn"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to function efficiently, we need your permission for retrieving information from your local calendar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X5-XS-lgf">
+                                        <rect key="frame" x="25" y="207" width="325" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="centerY" secondItem="gti-VU-3pD" secondAttribute="centerY" id="NRV-J6-8tY"/>
+                                    <constraint firstAttribute="trailing" secondItem="7X5-XS-lgf" secondAttribute="trailing" constant="25" id="U3t-sP-8nX"/>
+                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="djC-jR-oJS"/>
+                                    <constraint firstItem="7X5-XS-lgf" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="rSa-z7-h5W"/>
+                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="top" secondItem="7X5-XS-lgf" secondAttribute="bottom" constant="50" id="vFq-2x-rXL"/>
+                                    <constraint firstItem="7X5-XS-lgf" firstAttribute="leading" secondItem="gti-VU-3pD" secondAttribute="leading" constant="25" id="xNm-pj-KPl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

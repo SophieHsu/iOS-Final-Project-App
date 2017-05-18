@@ -80,7 +80,8 @@ class ViewController: UIViewController {
             
             if accessGranted == true {
                 DispatchQueue.main.async(execute: {
-//                    self.loadCalendars()
+                    self.loadCalendars()
+                    print("in")
 //                    self.refreshTableView()
                 })
             } else {
@@ -156,7 +157,7 @@ class ViewController: UIViewController {
             textStr = textStr + eventTitle + " at " + eventStartTime + ", "
         }
         utterance = AVSpeechUtterance(string: textStr)
-        utterance.rate = 0.3
+        utterance.rate = 0.4
         speechSynthesizer.speak(utterance)
     }
 

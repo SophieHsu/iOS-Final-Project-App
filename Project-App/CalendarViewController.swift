@@ -83,9 +83,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }else{
             validCell.selectedView.isHidden = true
-            if currentDateString == cellStateDateString {
-                validCell.todaySelectedView.isHidden = true
-            }
+            validCell.todaySelectedView.isHidden = true
         }
     }
     
@@ -209,10 +207,20 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var exist = false
         if segue.identifier == "calendarvc_to_addeventvc" {
             let vc = segue.destination as! AddEventViewController
-            vc.calendar = calendars?[0]
-            vc.delegate = self
+            for i in calendars! {
+                if i.title == "Assistant" {
+                    exist = true;
+                    vc.calendar = i
+                    vc.delegate = self
+                }
+            }
+            if exist == false {
+                vc.calendar = addCalendar()
+                vc.delegate = self
+            }
         }
     }
     
@@ -221,6 +229,35 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         self.loadEvents(date: Date())
         self.tableView.reloadData()
     }
+}
+
+func addCalendar() -> EKCalendar{
+    let eventStore = EKEventStore();
+    let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
+    //var delegate: CalendarAddedDelegate?
+    
+    newCalendar.title = "Assistant"
+    
+    let sourcesInEventStore = eventStore.sources
+    
+    newCalendar.source = sourcesInEventStore.filter{
+        (source: EKSource) -> Bool in
+        source.sourceType.rawValue == EKSourceType.local.rawValue
+        }.first!
+    
+    do {
+        try eventStore.saveCalendar(newCalendar, commit: true)
+//        UserDefaults.standard.set(newCalendar.calendarIdentifier, forKey: "EventTrackerPrimaryCalendar")
+//        delegate?.calendarDidAdd()
+//        self.dismiss(animated: true, completion: nil)
+    } catch {
+        let alert = UIAlertController(title: "Calendar could not save", message: (error as NSError).localizedDescription, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(OKAction)
+        print("Calendar could not save")
+        //self.present(alert, animated: true, completion: nil)
+    }
+    return newCalendar
 }
 
 extension CalendarViewController: JTAppleCalendarViewDataSource {
