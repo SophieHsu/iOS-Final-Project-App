@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		69A8A2AB6154E19A8D387B36 /* Pods_Project_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3E5F4DB8D8D173D25AE2C4 /* Pods_Project_App.framework */; };
+		800A5F511ED1E34400074285 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A5F501ED1E34400074285 /* AddViewController.swift */; };
+		800A5F591ED217B700074285 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A5F581ED217B700074285 /* ToDoItem.swift */; };
 		80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341C9F1EB633C4004268DB /* AppDelegate.swift */; };
 		80341CA21EB633C4004268DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341CA11EB633C4004268DB /* ViewController.swift */; };
 		80341CA51EB633C4004268DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA31EB633C4004268DB /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		225F8C63D6A5662F4B52984E /* Pods-Project-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project-App/Pods-Project-App.release.xcconfig"; sourceTree = "<group>"; };
 		7E3E5F4DB8D8D173D25AE2C4 /* Pods_Project_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		800A5F501ED1E34400074285 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		800A5F581ED217B700074285 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		80341C9C1EB633C4004268DB /* Project-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80341C9F1EB633C4004268DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80341CA11EB633C4004268DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				80341CAB1EB633C4004268DB /* Info.plist */,
 				80341D101EB8EBE4004268DB /* TodoViewController.swift */,
 				AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */,
+				800A5F501ED1E34400074285 /* AddViewController.swift */,
+				800A5F581ED217B700074285 /* ToDoItem.swift */,
 			);
 			path = "Project-App";
 			sourceTree = "<group>";
@@ -271,12 +277,14 @@
 				AFF481FE1EC4A63D0081A008 /* UIViewExtensions.swift in Sources */,
 				80341CA21EB633C4004268DB /* ViewController.swift in Sources */,
 				AFF482021EC571FE0081A008 /* calendarTableViewCell.swift in Sources */,
+				800A5F511ED1E34400074285 /* AddViewController.swift in Sources */,
 				80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */,
 				AF4DDF5F1EBB7C5A00094BFA /* CustomCell.swift in Sources */,
 				80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */,
 				AFF482061EC8B2BD0081A008 /* AddEventViewController.swift in Sources */,
 				AFF482081EC8B39E0081A008 /* EventAddedDelegate.swift in Sources */,
 				AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */,
+				800A5F591ED217B700074285 /* ToDoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

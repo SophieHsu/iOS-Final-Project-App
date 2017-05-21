@@ -8,13 +8,58 @@
 
 import UIKit
 
-class TodoViewController: UIViewController {
-    @IBAction func BacktoHome(_ sender: UIButton) {
-        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
-            show(vc2,sender: self)
+var list = ["iOS Game","Run 5 miles","iOS APP", "Movie"]
+
+class TodoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+{
+    
+    @IBOutlet weak var MyTableView: UITableView!
+
+    @IBAction func BackButton(_ sender: UIButton) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
+            show(vc,sender: self)
         }
     }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return (list.count)
+    }
+    
 
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        
+        cell.textLabel?.text = list[indexPath.row]
+        
+        return (cell)
+    }
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
+            list.remove(at: indexPath.row)
+            MyTableView.reloadData()
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to: IndexPath) {
+        let temp = list[sourceIndexPath.row]
+        list.remove(at: sourceIndexPath.row)
+        list.insert(temp,at : to.row)
+    }
+
+
+    override func viewDidAppear(_ animated: Bool) {
+        MyTableView.isEditing = true
+        MyTableView.reloadData()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,6 +70,9 @@ class TodoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwind(for segue: UIStoryboardSegue){
+        
+    }
 
     /*
     // MARK: - Navigation
