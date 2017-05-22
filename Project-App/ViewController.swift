@@ -25,6 +25,11 @@ class ViewController: UIViewController {
             show(vc,sender: self)
         }
     }
+    @IBAction func FoodPickerButton(_ sender: UIButton) {
+        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "FoodViewController"){
+            show(vc2,sender: self)
+        }
+    }
     
     @IBAction func CalendarBtn(_ sender: UIButton) {
         if let vc3 = storyboard?.instantiateViewController(withIdentifier: "CalendarVC"){

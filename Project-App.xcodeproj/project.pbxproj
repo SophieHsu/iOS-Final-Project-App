@@ -10,16 +10,16 @@
 		69A8A2AB6154E19A8D387B36 /* Pods_Project_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3E5F4DB8D8D173D25AE2C4 /* Pods_Project_App.framework */; };
 		800A5F511ED1E34400074285 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A5F501ED1E34400074285 /* AddViewController.swift */; };
 		800A5F591ED217B700074285 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A5F581ED217B700074285 /* ToDoItem.swift */; };
+		800A5F631ED236EA00074285 /* foodbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 800A5F621ED236EA00074285 /* foodbackground.png */; };
 		80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341C9F1EB633C4004268DB /* AppDelegate.swift */; };
 		80341CA21EB633C4004268DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341CA11EB633C4004268DB /* ViewController.swift */; };
 		80341CA51EB633C4004268DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA31EB633C4004268DB /* Main.storyboard */; };
 		80341CA71EB633C4004268DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA61EB633C4004268DB /* Assets.xcassets */; };
 		80341CAA1EB633C4004268DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA81EB633C4004268DB /* LaunchScreen.storyboard */; };
-		80341CB41EB63E05004268DB /* back.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 80341CB31EB63E05004268DB /* back.jpeg */; };
-		80341CB61EB63F40004268DB /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80341CB51EB63F40004268DB /* background.jpg */; };
-		80341CBA1EB64331004268DB /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 80341CB91EB64331004268DB /* setting.png */; };
-		80341CBC1EB64551004268DB /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 80341CBB1EB64551004268DB /* calender.png */; };
 		80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341D101EB8EBE4004268DB /* TodoViewController.swift */; };
+		8057A8FF1ED241BD00C798C5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */; };
+		8057A9011ED2437800C798C5 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057A9001ED2437800C798C5 /* Food.swift */; };
+		80A6DA1E1ED255930009A915 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6DA1D1ED255930009A915 /* FoodViewController.swift */; };
 		AF4DDF5F1EBB7C5A00094BFA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4DDF5E1EBB7C5A00094BFA /* CustomCell.swift */; };
 		AF4DDF611EBB862F00094BFA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */; };
 		AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC633621EBB90E200C77306 /* SettingViewController.swift */; };
@@ -38,6 +38,7 @@
 		7E3E5F4DB8D8D173D25AE2C4 /* Pods_Project_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800A5F501ED1E34400074285 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		800A5F581ED217B700074285 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		800A5F621ED236EA00074285 /* foodbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodbackground.png; sourceTree = "<group>"; };
 		80341C9C1EB633C4004268DB /* Project-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80341C9F1EB633C4004268DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80341CA11EB633C4004268DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,11 +46,10 @@
 		80341CA61EB633C4004268DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80341CA91EB633C4004268DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80341CAB1EB633C4004268DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80341CB31EB63E05004268DB /* back.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpeg; sourceTree = "<group>"; };
-		80341CB51EB63F40004268DB /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		80341CB91EB64331004268DB /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
-		80341CBB1EB64551004268DB /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calender.png; sourceTree = "<group>"; };
 		80341D101EB8EBE4004268DB /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		8057A9001ED2437800C798C5 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		80A6DA1D1ED255930009A915 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		AF4DDF5E1EBB7C5A00094BFA /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		AFC633621EBB90E200C77306 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -109,12 +109,9 @@
 				AFF4820D1EC8CE4E0081A008 /* assistant2.png */,
 				AFF4820B1EC8CD9C0081A008 /* assitance.png */,
 				AFF482031EC8AEB70081A008 /* plus icon.png */,
+				800A5F621ED236EA00074285 /* foodbackground.png */,
 				AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */,
 				AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */,
-				80341CB31EB63E05004268DB /* back.jpeg */,
-				80341CB51EB63F40004268DB /* background.jpg */,
-				80341CB91EB64331004268DB /* setting.png */,
-				80341CBB1EB64551004268DB /* calender.png */,
 				80341C9F1EB633C4004268DB /* AppDelegate.swift */,
 				80341CA11EB633C4004268DB /* ViewController.swift */,
 				80341CA31EB633C4004268DB /* Main.storyboard */,
@@ -129,6 +126,9 @@
 				AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */,
 				800A5F501ED1E34400074285 /* AddViewController.swift */,
 				800A5F581ED217B700074285 /* ToDoItem.swift */,
+				8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */,
+				8057A9001ED2437800C798C5 /* Food.swift */,
+				80A6DA1D1ED255930009A915 /* FoodViewController.swift */,
 			);
 			path = "Project-App";
 			sourceTree = "<group>";
@@ -207,14 +207,11 @@
 				AFF4820E1EC8CE4E0081A008 /* assistant2.png in Resources */,
 				80341CAA1EB633C4004268DB /* LaunchScreen.storyboard in Resources */,
 				AFF4820A1EC8CBFE0081A008 /* speak.png in Resources */,
-				80341CB61EB63F40004268DB /* background.jpg in Resources */,
 				AFF4820C1EC8CD9C0081A008 /* assitance.png in Resources */,
-				80341CBA1EB64331004268DB /* setting.png in Resources */,
 				80341CA71EB633C4004268DB /* Assets.xcassets in Resources */,
-				80341CBC1EB64551004268DB /* calender.png in Resources */,
+				800A5F631ED236EA00074285 /* foodbackground.png in Resources */,
 				AFF482041EC8AEB70081A008 /* plus icon.png in Resources */,
 				80341CA51EB633C4004268DB /* Main.storyboard in Resources */,
-				80341CB41EB63E05004268DB /* back.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4DDF611EBB862F00094BFA /* CalendarViewController.swift in Sources */,
+				80A6DA1E1ED255930009A915 /* FoodViewController.swift in Sources */,
 				AFF481FE1EC4A63D0081A008 /* UIViewExtensions.swift in Sources */,
+				8057A9011ED2437800C798C5 /* Food.swift in Sources */,
 				80341CA21EB633C4004268DB /* ViewController.swift in Sources */,
 				AFF482021EC571FE0081A008 /* calendarTableViewCell.swift in Sources */,
 				800A5F511ED1E34400074285 /* AddViewController.swift in Sources */,
 				80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */,
+				8057A8FF1ED241BD00C798C5 /* FoodCollectionViewCell.swift in Sources */,
 				AF4DDF5F1EBB7C5A00094BFA /* CustomCell.swift in Sources */,
 				80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */,
 				AFF482061EC8B2BD0081A008 /* AddEventViewController.swift in Sources */,
