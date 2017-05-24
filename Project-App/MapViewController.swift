@@ -24,7 +24,12 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         }
     }
 
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        myMap.delegate = nil
+        myMap.removeFromSuperview()
+        myMap = nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +83,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
 
     }
     
+    
     // 設定大頭針顏色
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -97,64 +103,90 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         }else{
             // 如果有的話，設定顯示文字
             result?.annotation = annotation
+            
         }
         
         //設定點選可以秀出資訊
         result?.canShowCallout = true
+
+        
         //設定大頭針顏色
         (result as! MKPinAnnotationView).pinTintColor = UIColor.green
         //設定大頭針是否掉下動畫
         (result as! MKPinAnnotationView).animatesDrop = true
+        
+        // Calloutk的右邊，設定成按鈕
+        let button = UIButton(type: .detailDisclosure)
+        button.addTarget(self, action: #selector(MapViewController.buttonPressed(button:)), for: .touchUpInside)
+        
+        result?.rightCalloutAccessoryView = button
         
         //回傳大頭針
         return result
         
     }
     
-    /*
-    var googleMapView: GMSMapView!
-    //var locationManager: CLLocationManager!
-    var placePicker: GMSPlacePicker!
-    var latitude: Double!
-    var longitude: Double!
+    func buttonPressed(button:UIButton){
+        myMap.removeAnnotations(myMap.annotations)
+    }
     
+    func mapView(_ mapView: MKMapView,annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
+        self.performSegue(withIdentifier: "showDirection", sender: view)
+    }
+    
+    var matchingItems: [MKMapItem] = [MKMapItem]()
+    @IBOutlet weak var searchText: UITextField!
+    @IBAction func searchButton(_ sender: UIButton) {
+        _ = sender.resignFirstResponder()
+        myMap.removeAnnotations(myMap.annotations)
+        self.performSearch()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    }
+    
+    func performSearch() {
         
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+        matchingItems.removeAll()
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = searchText.text
+        request.region = myMap.region
         
+        let search = MKLocalSearch(request: request)
+        
+        search.start(completionHandler: {(response, error) in
+            
+            if error != nil {
+                print("Error occured in search: \(error!.localizedDescription)")
+            } else if response!.mapItems.count == 0 {
+                print("No matches found")
+            } else {
+                print("Matches found")
+                
+                for item in response!.mapItems {
+                    print("Name = \(item.name)")
+                    print("Phone = \(item.phoneNumber)")
+                    
+                    self.matchingItems.append(item as MKMapItem)
+                    print("Matching items = \(self.matchingItems.count)")
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = item.placemark.coordinate
+                    annotation.title = item.name
+                    annotation.subtitle = item.phoneNumber
+          
+                    self.myMap.addAnnotation(annotation)
+                }
+            }
+        })
         
     }
     
     
-     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-     self.showCurrentLocationOnMap()
-     self.locationManager.stopUpdatingLocation()
-     }
-
-    
-    func showCurrentLocationOnMap(){
-        
-        let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 17)
-        let mapView = GMSMapView.map(withFrame: self.myView.bounds, camera: camera)
-        mapView.settings.myLocationButton = true
-        mapView.isMyLocationEnabled = true
-        
-        
-        self.myView.addSubview(mapView)
-        
-    }*/
-
     
     @IBAction func NearbyButton(_ sender: UIButton) {
         //產生一個request
         let request = MKLocalSearchRequest()
         // 設定要搜尋的單詞
-        request.naturalLanguageQuery = "coffee"
+        request.naturalLanguageQuery = searchText.text
         // 設定搜尋區域
         request.region = myMap.region
         // 產生MKLocalSearch型別的物件
@@ -167,10 +199,10 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                 for item in response!.mapItems{
                     //把結果的位置加上大頭針
                     self.myMap.addAnnotation(item.placemark)
+                    
                 }
             }
         }
-        
     }
     
  

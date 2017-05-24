@@ -20,6 +20,7 @@
 		80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341D101EB8EBE4004268DB /* TodoViewController.swift */; };
 		8040B2261ED509AD00E37C3B /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040B2251ED509AD00E37C3B /* GoogleMapViewController.swift */; };
 		8040B2291ED5306400E37C3B /* Project-App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8040B2271ED5306400E37C3B /* Project-App.xcdatamodeld */; };
+		8040B24C1ED5CC0500E37C3B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040B24B1ED5CC0400E37C3B /* WeatherViewController.swift */; };
 		8057A8FF1ED241BD00C798C5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */; };
 		8057A9011ED2437800C798C5 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057A9001ED2437800C798C5 /* Food.swift */; };
 		80A6DA1E1ED255930009A915 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6DA1D1ED255930009A915 /* FoodViewController.swift */; };
@@ -49,6 +50,7 @@
 		80341D101EB8EBE4004268DB /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		8040B2251ED509AD00E37C3B /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		8040B2281ED5306400E37C3B /* Project-App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Project-App.xcdatamodel"; sourceTree = "<group>"; };
+		8040B24B1ED5CC0400E37C3B /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		8057A9001ED2437800C798C5 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		80A6DA1D1ED255930009A915 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				80341CA61EB633C4004268DB /* Assets.xcassets */,
 				80341CA81EB633C4004268DB /* LaunchScreen.storyboard */,
 				80341CAB1EB633C4004268DB /* Info.plist */,
+				8040B2271ED5306400E37C3B /* Project-App.xcdatamodeld */,
 				AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */,
 				800A5F501ED1E34400074285 /* AddViewController.swift */,
 				80341D101EB8EBE4004268DB /* TodoViewController.swift */,
@@ -125,7 +128,7 @@
 				80A6DA1D1ED255930009A915 /* FoodViewController.swift */,
 				802D17301ED288D90044D2D0 /* MapViewController.swift */,
 				8040B2251ED509AD00E37C3B /* GoogleMapViewController.swift */,
-				8040B2271ED5306400E37C3B /* Project-App.xcdatamodeld */,
+				8040B24B1ED5CC0400E37C3B /* WeatherViewController.swift */,
 			);
 			path = "Project-App";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				802D17331ED29BE90044D2D0 /* Restaurant.swift in Sources */,
 				800A5F591ED217B700074285 /* ToDoItem.swift in Sources */,
 				802D17311ED288D90044D2D0 /* MapViewController.swift in Sources */,
+				8040B24C1ED5CC0500E37C3B /* WeatherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,14 +10,22 @@ import UIKit
 import EventKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UISearchBarDelegate {
     let eventStore = EKEventStore()
     let speechSynthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance(string: "")
     let formatter = DateFormatter()
     var calendars: [EKCalendar]?
     var events: [EKEvent]?
+
     
+
+    @IBAction func weatherBytton(_ sender: UIButton) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController"){
+            show(vc,sender: self)
+        }
+    }
+
     @IBOutlet weak var needPermissionView: UIView!
     
     @IBAction func Todo(_ sender: UIButton) {
@@ -50,6 +58,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         loadCalendars()
         loadEvents(date: Date())
+        
+        // setting weather
+        defaultWeather()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -176,4 +188,88 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    // weather initial data
+    var degree: Int!
+    var condition: String!
+    var imgURL: String!
+    var city: String!
+    var defaltStr:String!
+
+    
+    @IBOutlet weak var weatherImg: UIImageView!
+    @IBOutlet weak var degreeStr: UILabel!
+    @IBOutlet weak var locationStr: UILabel!
+    
+    
+    // weather setting function
+    func defaultWeather (){
+        // searchBar.delegate = self
+        defaltStr = "Taipei"
+        let urlRequest = URLRequest(url: URL(string: "http://api.apixu.com/v1/current.json?key=3c4b229e07cf47f2b8e172349172405&q=\(defaltStr.replacingOccurrences(of: " ", with: "%20"))")!)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            
+            if error == nil {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
+                    
+                    if let current = json["current"] as? [String : AnyObject] {
+                        
+                        if let temp = current["temp_c"] as? Int {
+                            self.degree = temp
+                        }
+                        if let condition = current["condition"] as? [String : AnyObject] {
+                            self.condition = condition["text"] as! String
+                            let icon = condition["icon"] as! String
+                            self.imgURL = "http:\(icon)"
+                        }
+                    }
+                    if let location = json["location"] as? [String : AnyObject] {
+                        self.city = location["name"] as! String
+                    }
+                    
+                    if let _ = json["error"] {
+                        // self.exists = false
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.degreeStr.isHidden = false
+                        self.weatherImg.isHidden = false
+                        self.degreeStr.text = "\(self.degree.description)°"
+                        self.locationStr.text = self.city
+                        self.weatherImg.downloadImage(from: self.imgURL!)
+
+                    }
+                    
+                    
+                } catch let jsonError {
+                    print(jsonError.localizedDescription)
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
 }
+
+extension UIImageView {
+    
+    func downloadImage(from url: String) {
+        let urlRequest = URLRequest(url: URL(string: url)!)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data!)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
+}
+

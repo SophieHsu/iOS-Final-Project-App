@@ -30,14 +30,11 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
         }
         
     }
-    fileprivate var foods = [Food(foodId: "Paris001",country: "France", featuredImage: UIImage(named: "paris"), price: 2000, isLiked: false),
-                         Food(foodId: "Rome001",country: "Italy", featuredImage: UIImage(named: "rome"), price: 800, isLiked: false),
-                         Food(foodId: "Istanbul001", country: "Turkey", featuredImage: UIImage(named: "istanbul"), price: 2200, isLiked: false),
-                         Food(foodId: "London001", country: "United Kingdom", featuredImage: UIImage(named: "london"), price: 3000, isLiked: false),
-                         Food(foodId: "Sydney001", country: "Australia", featuredImage: UIImage(named: "sydney"), price: 2500, isLiked: false),
-                         Food(foodId: "Santorini001",country: "Greece", featuredImage: UIImage(named: "santorini"), price: 1800, isLiked: false),
-                         Food(foodId: "NewYork001", country: "United States", featuredImage: UIImage(named: "newyork"), price: 900, isLiked: false),
-                         Food(foodId: "Kyoto001", country: "Japan", featuredImage: UIImage(named: "kyoto"), price: 1000, isLiked: false)]
+    fileprivate var foods = [Food(foodId: "韓式",country: "Korea", featuredImage: UIImage(named: "paris"), price: 2000, isLiked: false),
+                         Food(foodId: "中式",country: "China", featuredImage: UIImage(named: "rome"), price: 800, isLiked: false),
+                         Food(foodId: "日式", country: "Japan", featuredImage: UIImage(named: "istanbul"), price: 2200, isLiked: false),
+                         Food(foodId: "美式", country: "US", featuredImage: UIImage(named: "london"), price: 3000, isLiked: false),
+                         Food(foodId: "others", country: "Others", featuredImage: UIImage(named: "sydney"), price: 2500, isLiked: false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
