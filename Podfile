@@ -7,5 +7,7 @@ target 'Project-App' do
 
   # Pods for Project-App
   pod 'JTAppleCalendar’, ‘~> 7.0’
-
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
 end

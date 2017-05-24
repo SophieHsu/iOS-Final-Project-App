@@ -21,6 +21,8 @@ class FoodCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var likeButton:UIButton!
     
+    @IBOutlet weak var locationButton: UIButton!
+    
     var delegate:FoodCollectionCellDelegate?
     
     var isLiked:Bool = false  {

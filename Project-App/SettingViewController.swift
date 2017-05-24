@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class SettingViewController: UIViewController {
     @IBAction func BacktoHome(_ sender: UIButton) {
         if let vc2 = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
@@ -21,9 +20,8 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        URLCache.shared.removeAllCachedResponses()
     }
     
 

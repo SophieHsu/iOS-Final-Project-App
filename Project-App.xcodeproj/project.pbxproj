@@ -10,13 +10,16 @@
 		69A8A2AB6154E19A8D387B36 /* Pods_Project_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3E5F4DB8D8D173D25AE2C4 /* Pods_Project_App.framework */; };
 		800A5F511ED1E34400074285 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A5F501ED1E34400074285 /* AddViewController.swift */; };
 		800A5F591ED217B700074285 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A5F581ED217B700074285 /* ToDoItem.swift */; };
-		800A5F631ED236EA00074285 /* foodbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 800A5F621ED236EA00074285 /* foodbackground.png */; };
+		802D17311ED288D90044D2D0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802D17301ED288D90044D2D0 /* MapViewController.swift */; };
+		802D17331ED29BE90044D2D0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802D17321ED29BE90044D2D0 /* Restaurant.swift */; };
 		80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341C9F1EB633C4004268DB /* AppDelegate.swift */; };
 		80341CA21EB633C4004268DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341CA11EB633C4004268DB /* ViewController.swift */; };
 		80341CA51EB633C4004268DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA31EB633C4004268DB /* Main.storyboard */; };
 		80341CA71EB633C4004268DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA61EB633C4004268DB /* Assets.xcassets */; };
 		80341CAA1EB633C4004268DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80341CA81EB633C4004268DB /* LaunchScreen.storyboard */; };
 		80341D111EB8EBE4004268DB /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341D101EB8EBE4004268DB /* TodoViewController.swift */; };
+		8040B2261ED509AD00E37C3B /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040B2251ED509AD00E37C3B /* GoogleMapViewController.swift */; };
+		8040B2291ED5306400E37C3B /* Project-App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8040B2271ED5306400E37C3B /* Project-App.xcdatamodeld */; };
 		8057A8FF1ED241BD00C798C5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */; };
 		8057A9011ED2437800C798C5 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057A9001ED2437800C798C5 /* Food.swift */; };
 		80A6DA1E1ED255930009A915 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6DA1D1ED255930009A915 /* FoodViewController.swift */; };
@@ -25,12 +28,8 @@
 		AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC633621EBB90E200C77306 /* SettingViewController.swift */; };
 		AFF481FE1EC4A63D0081A008 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF481FD1EC4A63D0081A008 /* UIViewExtensions.swift */; };
 		AFF482021EC571FE0081A008 /* calendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF482011EC571FE0081A008 /* calendarTableViewCell.swift */; };
-		AFF482041EC8AEB70081A008 /* plus icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF482031EC8AEB70081A008 /* plus icon.png */; };
 		AFF482061EC8B2BD0081A008 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */; };
 		AFF482081EC8B39E0081A008 /* EventAddedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */; };
-		AFF4820A1EC8CBFE0081A008 /* speak.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF482091EC8CBFE0081A008 /* speak.png */; };
-		AFF4820C1EC8CD9C0081A008 /* assitance.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4820B1EC8CD9C0081A008 /* assitance.png */; };
-		AFF4820E1EC8CE4E0081A008 /* assistant2.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4820D1EC8CE4E0081A008 /* assistant2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +37,8 @@
 		7E3E5F4DB8D8D173D25AE2C4 /* Pods_Project_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800A5F501ED1E34400074285 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		800A5F581ED217B700074285 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
-		800A5F621ED236EA00074285 /* foodbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodbackground.png; sourceTree = "<group>"; };
+		802D17301ED288D90044D2D0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		802D17321ED29BE90044D2D0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		80341C9C1EB633C4004268DB /* Project-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80341C9F1EB633C4004268DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80341CA11EB633C4004268DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		80341CA91EB633C4004268DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80341CAB1EB633C4004268DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80341D101EB8EBE4004268DB /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		8040B2251ED509AD00E37C3B /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		8040B2281ED5306400E37C3B /* Project-App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Project-App.xcdatamodel"; sourceTree = "<group>"; };
 		8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		8057A9001ED2437800C798C5 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		80A6DA1D1ED255930009A915 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -55,12 +57,8 @@
 		AFC633621EBB90E200C77306 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AFF481FD1EC4A63D0081A008 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		AFF482011EC571FE0081A008 /* calendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarTableViewCell.swift; sourceTree = "<group>"; };
-		AFF482031EC8AEB70081A008 /* plus icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus icon.png"; sourceTree = "<group>"; };
 		AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddedDelegate.swift; sourceTree = "<group>"; };
-		AFF482091EC8CBFE0081A008 /* speak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speak.png; sourceTree = "<group>"; };
-		AFF4820B1EC8CD9C0081A008 /* assitance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assitance.png; sourceTree = "<group>"; };
-		AFF4820D1EC8CE4E0081A008 /* assistant2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assistant2.png; sourceTree = "<group>"; };
 		CAA13CC16C1C389F4B8EC4C3 /* Pods-Project-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project-App/Pods-Project-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,16 +103,11 @@
 		80341C9E1EB633C4004268DB /* Project-App */ = {
 			isa = PBXGroup;
 			children = (
-				AFF482091EC8CBFE0081A008 /* speak.png */,
-				AFF4820D1EC8CE4E0081A008 /* assistant2.png */,
-				AFF4820B1EC8CD9C0081A008 /* assitance.png */,
-				AFF482031EC8AEB70081A008 /* plus icon.png */,
-				800A5F621ED236EA00074285 /* foodbackground.png */,
+				80341C9F1EB633C4004268DB /* AppDelegate.swift */,
+				80341CA31EB633C4004268DB /* Main.storyboard */,
+				80341CA11EB633C4004268DB /* ViewController.swift */,
 				AFF482051EC8B2BD0081A008 /* AddEventViewController.swift */,
 				AFF482071EC8B39E0081A008 /* EventAddedDelegate.swift */,
-				80341C9F1EB633C4004268DB /* AppDelegate.swift */,
-				80341CA11EB633C4004268DB /* ViewController.swift */,
-				80341CA31EB633C4004268DB /* Main.storyboard */,
 				AFF482011EC571FE0081A008 /* calendarTableViewCell.swift */,
 				AFF481FD1EC4A63D0081A008 /* UIViewExtensions.swift */,
 				AFC633621EBB90E200C77306 /* SettingViewController.swift */,
@@ -122,13 +115,17 @@
 				80341CA61EB633C4004268DB /* Assets.xcassets */,
 				80341CA81EB633C4004268DB /* LaunchScreen.storyboard */,
 				80341CAB1EB633C4004268DB /* Info.plist */,
-				80341D101EB8EBE4004268DB /* TodoViewController.swift */,
 				AF4DDF601EBB862F00094BFA /* CalendarViewController.swift */,
 				800A5F501ED1E34400074285 /* AddViewController.swift */,
+				80341D101EB8EBE4004268DB /* TodoViewController.swift */,
 				800A5F581ED217B700074285 /* ToDoItem.swift */,
 				8057A8FE1ED241BD00C798C5 /* FoodCollectionViewCell.swift */,
 				8057A9001ED2437800C798C5 /* Food.swift */,
+				802D17321ED29BE90044D2D0 /* Restaurant.swift */,
 				80A6DA1D1ED255930009A915 /* FoodViewController.swift */,
+				802D17301ED288D90044D2D0 /* MapViewController.swift */,
+				8040B2251ED509AD00E37C3B /* GoogleMapViewController.swift */,
+				8040B2271ED5306400E37C3B /* Project-App.xcdatamodeld */,
 			);
 			path = "Project-App";
 			sourceTree = "<group>";
@@ -177,6 +174,8 @@
 				TargetAttributes = {
 					80341C9B1EB633C4004268DB = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 578P7C6QD3;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -204,13 +203,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFF4820E1EC8CE4E0081A008 /* assistant2.png in Resources */,
 				80341CAA1EB633C4004268DB /* LaunchScreen.storyboard in Resources */,
-				AFF4820A1EC8CBFE0081A008 /* speak.png in Resources */,
-				AFF4820C1EC8CD9C0081A008 /* assitance.png in Resources */,
 				80341CA71EB633C4004268DB /* Assets.xcassets in Resources */,
-				800A5F631ED236EA00074285 /* foodbackground.png in Resources */,
-				AFF482041EC8AEB70081A008 /* plus icon.png in Resources */,
 				80341CA51EB633C4004268DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,8 +277,12 @@
 				80341CA01EB633C4004268DB /* AppDelegate.swift in Sources */,
 				AFF482061EC8B2BD0081A008 /* AddEventViewController.swift in Sources */,
 				AFF482081EC8B39E0081A008 /* EventAddedDelegate.swift in Sources */,
+				8040B2291ED5306400E37C3B /* Project-App.xcdatamodeld in Sources */,
 				AFC633631EBB90E200C77306 /* SettingViewController.swift in Sources */,
+				8040B2261ED509AD00E37C3B /* GoogleMapViewController.swift in Sources */,
+				802D17331ED29BE90044D2D0 /* Restaurant.swift in Sources */,
 				800A5F591ED217B700074285 /* ToDoItem.swift in Sources */,
+				802D17311ED288D90044D2D0 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,10 +406,15 @@
 			baseConfigurationReference = CAA13CC16C1C389F4B8EC4C3 /* Pods-Project-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 578P7C6QD3;
 				INFOPLIST_FILE = "Project-App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ntust-iOS.Project-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project-App/Project-App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -421,10 +424,14 @@
 			baseConfigurationReference = 225F8C63D6A5662F4B52984E /* Pods-Project-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 578P7C6QD3;
 				INFOPLIST_FILE = "Project-App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ntust-iOS.Project-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project-App/Project-App-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -451,6 +458,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8040B2271ED5306400E37C3B /* Project-App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8040B2281ED5306400E37C3B /* Project-App.xcdatamodel */,
+			);
+			currentVersion = 8040B2281ED5306400E37C3B /* Project-App.xcdatamodel */;
+			path = "Project-App.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 80341C941EB633C4004268DB /* Project object */;
 }

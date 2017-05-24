@@ -13,6 +13,23 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView:UICollectionView!
     
+    @IBAction func BackButton(_ sender: UIButton) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
+            show(vc,sender: self)
+        }
+    }
+    @IBAction func mapButton(_ sender: UIButton) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "GoogleMapViewController"){
+            show(vc,sender: self)
+        }
+        
+    }
+    @IBAction func locationButton(_ sender: UIButton) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController"){
+            show(vc,sender: self)
+        }
+        
+    }
     fileprivate var foods = [Food(foodId: "Paris001",country: "France", featuredImage: UIImage(named: "paris"), price: 2000, isLiked: false),
                          Food(foodId: "Rome001",country: "Italy", featuredImage: UIImage(named: "rome"), price: 800, isLiked: false),
                          Food(foodId: "Istanbul001", country: "Turkey", featuredImage: UIImage(named: "istanbul"), price: 2200, isLiked: false),
@@ -30,16 +47,16 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
-        backgroundImageView.addSubview(blurEffectView)
+        //backgroundImageView.addSubview(blurEffectView)
         
         collectionView.backgroundColor = UIColor.clear
         
         // Change the height for 3.5-inch screen
-        /*
+        
         if UIScreen.main.bounds.size.height == 480.0 {
             let flowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             flowLayout.itemSize = CGSize(width: 250.0, height: 300.0)
-        }*/
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,6 +96,7 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
         return cell
     }
     
+    
     // MARK: - FoodCollectionCellDelegate Methods
     
     func didLikeButtonPressed(_ cell: FoodCollectionCell) {
@@ -86,5 +104,7 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
             foods[indexPath.row].isLiked = foods[indexPath.row].isLiked ? false : true
             cell.isLiked = foods[indexPath.row].isLiked
         }
+        
+        
     }
 }

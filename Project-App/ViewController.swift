@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func FoodPickerButton(_ sender: UIButton) {
-        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "FoodViewController"){
+        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "MapViewController"){
             show(vc2,sender: self)
         }
     }
@@ -169,7 +169,11 @@ class ViewController: UIViewController {
     
     @IBAction func goToSettingsButtonTapped(_ sender: UIButton) {
         let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
-        UIApplication.shared.open(openSettingsUrl!)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(openSettingsUrl!)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
 }
