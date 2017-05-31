@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class SettingViewController: UIViewController {
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var speakingSpeed: UISlider!
@@ -32,9 +31,8 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        URLCache.shared.removeAllCachedResponses()
     }
     
 
