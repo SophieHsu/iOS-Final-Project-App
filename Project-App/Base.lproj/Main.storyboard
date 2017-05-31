@@ -292,7 +292,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xdA-Yt-IGx" id="g3Z-cU-exW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="qwy-Ah-P4g">
@@ -550,7 +550,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBU-Lr-cj1" userLabel="Food">
-                                <rect key="frame" x="162" y="367" width="50" height="50"/>
+                                <rect key="frame" x="162" y="366.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OE9-zm-R9z"/>
                                     <constraint firstAttribute="width" constant="50" id="VSe-OQ-VtC"/>
@@ -637,10 +637,10 @@
                                 </constraints>
                             </stackView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gti-VU-3pD" userLabel="Permission View">
-                                <rect key="frame" x="0.0" y="313" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to function efficiently, we need your permission for retrieving information from your local calendar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X5-XS-lgf">
-                                        <rect key="frame" x="25" y="-164" width="325" height="101"/>
+                                        <rect key="frame" x="25" y="150" width="325" height="101"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="101" id="nEd-Yi-3g8"/>
                                         </constraints>
@@ -649,10 +649,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-Za-wkT">
-                                        <rect key="frame" x="0.0" y="3" width="63" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="63" id="W80-37-SsS"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="308" width="375" height="30"/>
                                         <state key="normal" title="Go To Settings"/>
                                         <connections>
                                             <action selector="goToSettingsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Qd-R6-epn"/>
@@ -661,13 +658,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="DVD-sR-92Y"/>
+                                    <constraint firstAttribute="height" constant="647" id="DVD-sR-92Y"/>
                                     <constraint firstAttribute="trailing" secondItem="7X5-XS-lgf" secondAttribute="trailing" constant="25" id="U3t-sP-8nX"/>
-                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="leading" secondItem="gti-VU-3pD" secondAttribute="leading" id="VS3-Zb-gde"/>
-                                    <constraint firstItem="7X5-XS-lgf" firstAttribute="top" secondItem="gti-VU-3pD" secondAttribute="top" constant="-164" id="Zjr-nM-ZCM"/>
+                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="centerY" secondItem="gti-VU-3pD" secondAttribute="centerY" id="YPV-q6-BCE"/>
+                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="leading" secondItem="gti-VU-3pD" secondAttribute="leading" id="cih-4l-TW6"/>
+                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="dUL-cE-LdH"/>
+                                    <constraint firstAttribute="trailing" secondItem="AWS-Za-wkT" secondAttribute="trailing" id="hQY-iS-SCp"/>
                                     <constraint firstItem="7X5-XS-lgf" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="rSa-z7-h5W"/>
+                                    <constraint firstItem="7X5-XS-lgf" firstAttribute="top" secondItem="gti-VU-3pD" secondAttribute="top" constant="150" id="x8y-vR-zWq"/>
                                     <constraint firstItem="7X5-XS-lgf" firstAttribute="leading" secondItem="gti-VU-3pD" secondAttribute="leading" constant="25" id="xNm-pj-KPl"/>
-                                    <constraint firstItem="AWS-Za-wkT" firstAttribute="top" secondItem="7X5-XS-lgf" secondAttribute="bottom" constant="66" id="xlq-JA-LG4"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3U-Yp-fnv" userLabel="weatherButton">
@@ -704,15 +703,14 @@
                             <constraint firstItem="9Ii-G7-7nu" firstAttribute="centerY" secondItem="bxC-Nr-YQ3" secondAttribute="centerY" id="P5J-6V-Xc1"/>
                             <constraint firstAttribute="trailing" secondItem="bxC-Nr-YQ3" secondAttribute="trailing" constant="15" id="Qnq-fO-D2U"/>
                             <constraint firstItem="QNP-zb-deC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RZb-ig-LRA"/>
-                            <constraint firstItem="pBU-Lr-cj1" firstAttribute="top" secondItem="gti-VU-3pD" secondAttribute="bottom" id="S3U-WP-VGQ" userLabel="Food.top = Permission View.bottom+40"/>
+                            <constraint firstItem="pBU-Lr-cj1" firstAttribute="top" secondItem="gti-VU-3pD" secondAttribute="bottom" constant="-300.5" id="S3U-WP-VGQ" userLabel="Food.top = Permission View.bottom+40"/>
                             <constraint firstItem="igL-bS-4xc" firstAttribute="centerX" secondItem="gti-VU-3pD" secondAttribute="centerX" id="TmQ-xL-Ghb"/>
                             <constraint firstItem="GZk-cE-Aez" firstAttribute="top" secondItem="lyo-hd-Vg7" secondAttribute="bottom" constant="8" id="Xhh-OB-jsv"/>
                             <constraint firstItem="tyM-5a-rKb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Y9e-Qf-pSE"/>
                             <constraint firstItem="QNP-zb-deC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="YQJ-Ra-xr7"/>
                             <constraint firstItem="9Ii-G7-7nu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="bb2-3f-2yQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bxC-Nr-YQ3" secondAttribute="bottom" constant="15" id="dHi-Gn-YEk"/>
-                            <constraint firstItem="igL-bS-4xc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eO6-vj-TUT"/>
-                            <constraint firstItem="gti-VU-3pD" firstAttribute="top" secondItem="lyo-hd-Vg7" secondAttribute="bottom" id="iVU-pI-aVz"/>
+                            <constraint firstItem="gti-VU-3pD" firstAttribute="top" secondItem="lyo-hd-Vg7" secondAttribute="bottom" constant="-292.5" id="iVU-pI-aVz"/>
                             <constraint firstItem="QNP-zb-deC" firstAttribute="centerY" secondItem="n93-NZ-Kh9" secondAttribute="centerY" id="kHe-wi-aa4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tyM-5a-rKb" secondAttribute="bottom" id="kqA-pg-mPz"/>
                             <constraint firstItem="gti-VU-3pD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l5a-6r-9l9"/>
@@ -874,7 +872,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OO3-aH-vDa" id="d0a-la-b9e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
