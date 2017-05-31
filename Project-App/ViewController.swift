@@ -10,6 +10,8 @@ import UIKit
 import EventKit
 import AVFoundation
 
+let defaults = UserDefaults.standard
+
 class ViewController: UIViewController {
     let eventStore = EKEventStore()
     let speechSynthesizer = AVSpeechSynthesizer()
@@ -18,6 +20,7 @@ class ViewController: UIViewController {
     var calendars: [EKCalendar]?
     var events: [EKEvent]?
     
+    @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var needPermissionView: UIView!
     
     @IBAction func Todo(_ sender: UIButton) {
@@ -45,6 +48,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         loadCalendars()
         loadEvents(date: Date())
+        loadUserGreeting(date: Date())
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,6 +137,32 @@ class ViewController: UIViewController {
         }
     }
     
+    func loadUserGreeting(date: Date) {
+        formatter.dateFormat = "H"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        let time = Int(formatter.string(from: date))
+        
+        if time! < 12 {
+            greeting.text = "Good morning, "
+        }else if (time! >= 12 && time! < 18){
+            greeting.text = "Good afternoon, "
+        }else{
+            greeting.text = "Good evening, "
+        }
+        
+        // Receive
+        if let name = defaults.string(forKey: "username") {
+            greeting.text = greeting.text! + name
+        }else{
+            greeting.text = greeting.text! + "__________"
+        }
+        
+        if let name = defaults.{
+            greeting.text = greeting.text! + name
+        }
+    }
+    
     @IBAction func speechBtn(sender: UIButton)
     {
         textToSpeech()
@@ -157,7 +187,7 @@ class ViewController: UIViewController {
             textStr = textStr + eventTitle + " at " + eventStartTime + ", "
         }
         utterance = AVSpeechUtterance(string: textStr)
-        utterance.rate = 0.4
+        utterance.rate = defaults.speakingSpeed.value
         speechSynthesizer.speak(utterance)
     }
 
