@@ -10,7 +10,9 @@ import UIKit
 import EventKit
 import AVFoundation
 
-class ViewController: UIViewController,UISearchBarDelegate {
+let defaults = UserDefaults.standard
+
+class ViewController: UIViewController {
     let eventStore = EKEventStore()
     let speechSynthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance(string: "")
@@ -18,14 +20,13 @@ class ViewController: UIViewController,UISearchBarDelegate {
     var calendars: [EKCalendar]?
     var events: [EKEvent]?
 
-    
-
+    @IBOutlet weak var greeting: UILabel!
     @IBAction func weatherBytton(_ sender: UIButton) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController"){
             show(vc,sender: self)
         }
     }
-
+    
     @IBOutlet weak var needPermissionView: UIView!
     
     @IBAction func Todo(_ sender: UIButton) {
@@ -58,10 +59,9 @@ class ViewController: UIViewController,UISearchBarDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         loadCalendars()
         loadEvents(date: Date())
-        
+        loadUserGreeting(date: Date())
         // setting weather
         defaultWeather()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -147,6 +147,28 @@ class ViewController: UIViewController,UISearchBarDelegate {
                 (e1: EKEvent, e2: EKEvent) -> Bool in
                 return e1.startDate.compare(e2.startDate) == ComparisonResult.orderedAscending
             }
+        }
+    }
+    
+    func loadUserGreeting(date: Date) {
+        formatter.dateFormat = "H"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        let time = Int(formatter.string(from: date))
+        
+        if time! < 12 {
+            greeting.text = "Good morning, "
+        }else if (time! >= 12 && time! < 18){
+            greeting.text = "Good afternoon, "
+        }else{
+            greeting.text = "Good evening, "
+        }
+        
+        // Receive
+        if let name = defaults.string(forKey: "username") {
+            greeting.text = greeting.text! + name
+        }else{
+            greeting.text = greeting.text! + "__________"
         }
     }
     

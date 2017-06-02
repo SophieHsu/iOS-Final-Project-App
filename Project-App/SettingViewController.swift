@@ -8,15 +8,26 @@
 
 import UIKit
 class SettingViewController: UIViewController {
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var speakingSpeed: UISlider!
     @IBAction func BacktoHome(_ sender: UIButton) {
         if let vc2 = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
             show(vc2,sender: self)
         }
     }
+    @IBAction func Done(_ sender: UIButton) {
+        defaults.set(userName.text, forKey: "username")
+        defaults.set(speakingSpeed.value, forKey: "speakingSpeed")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let name = defaults.string(forKey: "username") {
+            userName.text = name;
+        }
+        if let speed = defaults.string(forKey: "speakingSpeed") {
+            speakingSpeed.value = Float(speed)!;
+        }
         // Do any additional setup after loading the view.
     }
 
