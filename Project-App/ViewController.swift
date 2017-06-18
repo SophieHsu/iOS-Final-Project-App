@@ -156,7 +156,7 @@ class ViewController: UIViewController {
         formatter.locale = Calendar.current.locale
         let time = Int(formatter.string(from: date))
         
-        if time! < 12 {
+        if (time! < 12 && time! > 5) {
             greeting.text = "Good morning, "
         }else if (time! >= 12 && time! < 18){
             greeting.text = "Good afternoon, "

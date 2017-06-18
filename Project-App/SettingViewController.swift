@@ -18,6 +18,9 @@ class SettingViewController: UIViewController {
     @IBAction func Done(_ sender: UIButton) {
         defaults.set(userName.text, forKey: "username")
         defaults.set(speakingSpeed.value, forKey: "speakingSpeed")
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController"){
+            show(vc,sender: self)
+        }
     }
 
     override func viewDidLoad() {
