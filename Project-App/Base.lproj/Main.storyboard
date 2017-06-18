@@ -1207,13 +1207,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FY0-AA-DeT">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-<<<<<<< HEAD
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMx-c1-XeP">
-                                        <rect key="frame" x="0.0" y="42" width="375" height="545"/>
-=======
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMx-c1-XeP">
                                         <rect key="frame" x="0.0" y="42" width="375" height="605"/>
->>>>>>> 0ae873548d45bb76b6249fbb23ba873caed5374a
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="delegate" destination="JHr-QU-THy" id="Y2s-OS-JsV"/>
@@ -1246,11 +1241,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7du-PM-fb7" firstAttribute="top" secondItem="FY0-AA-DeT" secondAttribute="top" constant="75" id="BhP-NU-bM3"/>
-<<<<<<< HEAD
-                                    <constraint firstAttribute="bottom" secondItem="fMx-c1-XeP" secondAttribute="bottom" id="Obl-Vk-9es"/>
-=======
                                     <constraint firstAttribute="bottom" secondItem="fMx-c1-XeP" secondAttribute="bottom" id="FnK-ef-AFS"/>
->>>>>>> 0ae873548d45bb76b6249fbb23ba873caed5374a
                                     <constraint firstItem="7du-PM-fb7" firstAttribute="centerX" secondItem="FY0-AA-DeT" secondAttribute="centerX" id="PqP-OE-SBo"/>
                                     <constraint firstAttribute="trailing" secondItem="fMx-c1-XeP" secondAttribute="trailing" id="SMF-PG-1Ri"/>
                                     <constraint firstItem="POd-bz-f4O" firstAttribute="baseline" secondItem="7du-PM-fb7" secondAttribute="baseline" id="bH5-Uq-NLY"/>
