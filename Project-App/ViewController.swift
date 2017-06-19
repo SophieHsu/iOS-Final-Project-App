@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 import AVFoundation
+import MapKit
 
 let defaults = UserDefaults.standard
 
@@ -19,6 +20,8 @@ class ViewController: UIViewController {
     let formatter = DateFormatter()
     var calendars: [EKCalendar]?
     var events: [EKEvent]?
+    
+    var locationManager:CLLocationManager!
 
     @IBOutlet weak var greeting: UILabel!
     @IBAction func weatherBytton(_ sender: UIButton) {
@@ -56,6 +59,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 產生CLLocationManager，並要求授權
+        locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        
         // Do any additional setup after loading the view, typically from a nib.
         loadCalendars()
         loadEvents(date: Date())

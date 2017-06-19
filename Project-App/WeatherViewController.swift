@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class WeatherViewController: UIViewController, UISearchBarDelegate {
+class WeatherViewController: UIViewController, UISearchBarDelegate,MKMapViewDelegate {
     
     
     
@@ -34,10 +35,16 @@ class WeatherViewController: UIViewController, UISearchBarDelegate {
     
     var exists: Bool = true
 
-
+    var locationManager:CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // 產生CLLocationManager，並要求授權
+        locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        
         defaultWeather()
         searchBar.delegate = self
         
